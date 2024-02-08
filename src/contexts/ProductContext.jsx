@@ -1,9 +1,9 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 //API
 import api from "../services/config";
 
-export const ProductContext = createContext();
+const ProductContext = createContext();
 
 function ProductsProvider({ children }) {
   const [products, setProducts] = useState([]);
@@ -24,4 +24,11 @@ function ProductsProvider({ children }) {
   );
 }
 
+//Custom hook
+const useProducts = () => {
+  const products = useContext(ProductContext);
+  return products;
+};
+
 export default ProductsProvider;
+export { useProducts };
