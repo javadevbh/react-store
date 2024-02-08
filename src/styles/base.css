@@ -1,0 +1,8 @@
+@layer base {
+    body {
+        @apply m-auto max-w-[1200px] min-h-screen p-[10px] bg-[#f9fafc]
+    }
+    a {
+        @apply decoration-inherit text-inherit
+    }
+}
