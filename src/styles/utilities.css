@@ -1,0 +1,5 @@
+@layer utilities {
+  .flex-balance {
+    @apply flex items-center;
+  }
+}
