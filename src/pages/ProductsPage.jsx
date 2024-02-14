@@ -40,14 +40,14 @@ function ProductsPage() {
   return (
     <>
       <SearchBox search={search} setSearch={setSearch} setQuery={setQuery} />
-      <div className="flex justify-between">
-        <div className="w-full flex flex-wrap justify-between gap-[20px]">
+      <div className="flex flex-col-reverse justify-between gap-6 md:flex-row">
+        <div className="w-full flex flex-wrap justify-center gap-[20px] md:justify-between">
           {!displayed.length && <Loader />}
           {displayed.map((p) => (
             <Card key={p.id} data={p} />
           ))}
         </div>
-        <Sidebar setQuery={setQuery} />
+        <Sidebar query={query} setQuery={setQuery} />
       </div>
     </>
   );

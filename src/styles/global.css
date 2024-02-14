@@ -1,0 +1,5 @@
+@layer components {
+  .active-category {
+    @apply text-primary-orange bg-[rgba(254,93,66,0.2)] p-[3px] rounded-lg;
+  }
+}

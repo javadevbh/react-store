@@ -1,10 +1,13 @@
 //Helpers
 import { createQueryObject } from "../helpers/helper";
 
+//Constants
+import { categories } from "../constants/list";
+
 //Icons
 import { FaListUl } from "react-icons/fa";
 
-function Sidebar({ setQuery }) {
+function Sidebar({ query, setQuery }) {
   const categoryHandler = (e) => {
     const { tagName } = e.target;
     if (tagName !== "LI") return;
@@ -12,17 +15,24 @@ function Sidebar({ setQuery }) {
     setQuery((query) => createQueryObject(query, { category }));
   };
   return (
-    <div>
-      <div>
+    <div className="border-2 border-dashed border-gray-300 rounded-2xl w-52 h-fit bg-white p-4 grid gap-2">
+      <div className="flex-balance space-x-2 text-primary-orange">
         <FaListUl />
-        Categories
+        <p className="font-semibold">Categories</p>
       </div>
-      <ul onClick={categoryHandler}>
-        <li>All</li>
-        <li>Electronics</li>
-        <li>Jewelery</li>
-        <li>Men's Clothing</li>
-        <li>Women's Clothing</li>
+      <ul onClick={categoryHandler} className="grid gap-2">
+        {categories.map((category) => (
+          <li
+            key={category.id}
+            className={`cursor-pointer hover:text-primary-orange transition-all ${
+              query.category == category.type.toLowerCase()
+                ? "active-category"
+                : null
+            }`}
+          >
+            {category.type}
+          </li>
+        ))}
       </ul>
     </div>
   );
