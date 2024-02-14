@@ -11,7 +11,7 @@ const searchProducts = (products, search) => {
 };
 
 const filterProducts = (products, category) => {
-  if (!category || category == "all") return products;
+  if (!category) return products;
   const filteredProducts = products.filter((p) => p.category == category);
   return filteredProducts;
 };
@@ -38,4 +38,10 @@ const getInitialQuery = (searchParams) => {
   return query;
 };
 
-export { shortenTitle, searchProducts, filterProducts, createQueryObject , getInitialQuery };
+export {
+  shortenTitle,
+  searchProducts,
+  filterProducts,
+  createQueryObject,
+  getInitialQuery,
+};
