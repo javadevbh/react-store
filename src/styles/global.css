@@ -5,4 +5,7 @@
   .btn {
     @apply bg-primary-orange rounded-lg w-8 h-8 text-white flex-balance justify-center text-2xl;
   }
+  .btn-white {
+    @apply bg-white rounded-lg w-8 h-8 text-primary-orange flex-balance justify-center text-2xl;
+  }
 }
