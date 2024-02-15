@@ -8,11 +8,12 @@ import PageNotFound from "./pages/404";
 
 //Context
 import ProductsProvider from "./contexts/ProductContext";
+import CartProvider from "./contexts/CartContext";
 
 function App() {
   return (
     <>
-      <>
+      <CartProvider>
         <ProductsProvider>
           <Routes>
             <Route index element={<Navigate to="/products" replace />} />
@@ -22,7 +23,7 @@ function App() {
             <Route path="/*" element={<PageNotFound />} />
           </Routes>
         </ProductsProvider>
-      </>
+      </CartProvider>
     </>
   );
 }

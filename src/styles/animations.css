@@ -1,0 +1,21 @@
+@keyframes moveLeftBtn {
+  from {
+    transform: translateX(30px);
+    opacity: 0.2;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes moveRightBtn {
+  from {
+    transform: translateX(-30px);
+    opacity: 0.2;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

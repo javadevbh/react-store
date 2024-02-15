@@ -2,4 +2,7 @@
   .active-category {
     @apply text-primary-orange bg-[rgba(254,93,66,0.2)] p-[3px] rounded-lg;
   }
+  .btn {
+    @apply bg-primary-orange rounded-lg w-8 h-8 text-white flex-balance justify-center text-2xl;
+  }
 }
