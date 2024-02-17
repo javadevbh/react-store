@@ -3,7 +3,10 @@ import { TbChecklist } from "react-icons/tb";
 import { FaHashtag } from "react-icons/fa6";
 import { BsPatchCheck } from "react-icons/bs";
 
-function BasketSidebar({ state }) {
+//Helpers
+import notify from "../helpers/toastify";
+
+function BasketSidebar({ state , dispatch }) {
   const { total, itemsCounter } = state;
   return (
     <div className="w-60 p-5 shrink-0 h-fit grid gap-3 border-2 border-dashed border-primary-orange rounded-[40px] animate-[moveRightBtn_1s]">
@@ -25,7 +28,10 @@ function BasketSidebar({ state }) {
         </p>
         <p>pending...</p>
       </div>
-      <button className="btn w-full mt-7 text-lg">Checkout</button>
+      <button onClick={() => {
+        dispatch({type : "CHECKOUT"})
+        notify("success", "Your checked out successfully");
+      } } className="btn w-full mt-7 text-lg">Checkout</button>
     </div>
   );
 }

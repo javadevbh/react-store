@@ -3,6 +3,9 @@ import { createContext, useContext, useEffect, useState } from "react";
 //API
 import api from "../services/config";
 
+//Helpers
+import notify from "../helpers/toastify";
+
 const ProductContext = createContext();
 
 function ProductsProvider({ children }) {
@@ -12,7 +15,7 @@ function ProductsProvider({ children }) {
       try {
         setProducts(await api.get("/products"));
       } catch (error) {
-        console.log(error);
+        notify("error", error);
       }
     };
     fetchData();

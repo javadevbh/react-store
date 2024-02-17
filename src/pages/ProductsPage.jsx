@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useProducts } from "../contexts/ProductContext";
 import { useSearchParams } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //Components
 import Card from "../components/Card";
@@ -49,6 +51,7 @@ function ProductsPage() {
         </div>
         <Sidebar query={query} setQuery={setQuery} />
       </div>
+      <ToastContainer/>
     </>
   );
 }
