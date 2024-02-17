@@ -15,7 +15,7 @@ function Sidebar({ query, setQuery }) {
     setQuery((query) => createQueryObject(query, { category }));
   };
   return (
-    <div className="border-2 border-dashed border-gray-300 rounded-2xl w-52 h-fit bg-white p-4 grid gap-2">
+    <div className="border-2 border-dashed border-gray-300 rounded-2xl w-52 h-fit bg-white p-4 grid gap-2 animate-[moveLeftBtn_1s]">
       <div className="flex-balance space-x-2 text-primary-orange">
         <FaListUl />
         <p className="font-semibold">Categories</p>

@@ -17,14 +17,14 @@ function ProductDetailsPage() {
   if (!product) return <Loader />;
   return (
     <div className="flex md:flex-row md:justify-between gap-9 min-h-[1000px] flex-col">
-      <div className="shrink-0 h-fit border-2 border-dashed border-primary-orange rounded-[40px] p-5 bg-white overflow-hidden">
+      <div className="shrink-0 h-fit border-2 border-dashed border-primary-orange rounded-[40px] p-5 bg-white overflow-hidden animate-[moveRightBtn_1s]">
         <img
           src={product.image}
           alt="product-image"
           className="w-[280px] h-[280px] md:mx-0 mx-auto"
         />
       </div>
-      <div className="border-2 h-fit border-dashed border-gray-300 rounded-[40px] p-6 grid gap-6">
+      <div className="border-2 h-fit border-dashed border-gray-300 rounded-[40px] p-6 grid gap-6 animate-[moveLeftBtn_1s]">
         <h1 className="text-primary-orange text-2xl font-bold">
           {product.title}
         </h1>

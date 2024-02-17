@@ -11,7 +11,7 @@ function BasketCard({ data, dispatch }) {
   };
 
   return (
-    <li className="border-2 border-dashed border-gray-300 p-5 h-fit flex-balance justify-between rounded-[20px]">
+    <li className="border-2 border-dashed border-gray-300 sm:px-5 sm:py-5 px-2 py-5 h-fit flex-balance justify-between rounded-[20px] animate-[moveDown_1s]">
       <div className="w-10">
         <img src={image} alt="product-image" />
       </div>

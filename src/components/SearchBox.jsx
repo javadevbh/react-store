@@ -9,7 +9,7 @@ function SearchBox({ search, setSearch, setQuery }) {
     setQuery((query) => createQueryObject(query, { search }));
   };
   return (
-    <div className="flex-balance space-x-2 md:mb-12 mb-6">
+    <div className="flex-balance space-x-2 md:mb-12 mb-6 animate-[moveDown_1s]">
       <input
         type="text"
         placeholder="Search..."

@@ -3,9 +3,9 @@
     @apply text-primary-orange bg-[rgba(254,93,66,0.2)] p-[3px] rounded-lg;
   }
   .btn {
-    @apply bg-primary-orange transition-all duration-300 hover:bg-orange-600 rounded-lg w-8 h-8 text-white flex-balance justify-center text-2xl;
+    @apply bg-primary-orange transition-all hover:scale-105 active:scale-100 duration-300 hover:bg-orange-600 rounded-lg w-8 h-8 text-white flex-balance justify-center text-2xl;
   }
   .btn-white {
-    @apply bg-white rounded-lg w-8 h-8 text-primary-orange flex-balance justify-center text-2xl;
+    @apply bg-white rounded-lg transition-all hover:scale-105 active:scale-100 w-8 h-8 text-primary-orange flex-balance justify-center text-2xl;
   }
 }

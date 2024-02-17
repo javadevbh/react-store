@@ -19,3 +19,14 @@
     opacity: 1;
   }
 }
+
+@keyframes moveDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0.2;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

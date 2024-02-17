@@ -20,7 +20,7 @@ function Card({ data }) {
   };
 
   return (
-    <div className="w-[270px] bg-white border-2 border-dashed border-gray-300 p-5 rounded-2xl flex flex-col gap-6">
+    <div className="w-[270px] bg-white border-2 border-dashed border-gray-300 p-5 rounded-2xl flex flex-col gap-6 animate-[moveRightBtn_1s]">
       <img
         src={image}
         alt="product-image"
