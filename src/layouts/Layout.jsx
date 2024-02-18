@@ -9,7 +9,7 @@ function Layout({ children }) {
 
   return (
     <>
-      <header className="py-3 px-5 bg-primary-orange text-white rounded-lg flex-balance justify-between mb-10">
+      <header className="py-3 px-5 bg-primary-orange text-white rounded-lg flex-balance justify-between mb-10 sticky top-0 left-0 z-10">
         <Link to="/products">
           <h1 className="text-xl font-semibold cursor-pointer">ReactShop✨</h1>
         </Link>
