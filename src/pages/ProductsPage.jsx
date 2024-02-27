@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
-import { useProducts } from "../contexts/ProductContext";
+import { useSelector, useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+//Redux slices
+import { fetchProducts } from "../features/products/productsSlice";
 
 //Components
 import Card from "../components/Card";
 import SearchBox from "../components/SearchBox";
 import Sidebar from "../components/Sidebar";
+import Loader from "../components/Loader";
 
 //Helpers
 import {
@@ -15,16 +19,19 @@ import {
   searchProducts,
   getInitialQuery,
 } from "../helpers/helper";
-
-//Loader
-import Loader from "../components/Loader";
+import notify from "../helpers/toastify";
 
 function ProductsPage() {
-  const products = useProducts();
+  const { products, error } = useSelector((store) => store.products);
+  const dispatch = useDispatch();
   const [displayed, setDisplayed] = useState([]);
   const [query, setQuery] = useState({});
   const [search, setSearch] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
 
   useEffect(() => {
     setDisplayed(products);
@@ -39,6 +46,8 @@ function ProductsPage() {
     setDisplayed(finalProducts);
   }, [query]);
 
+  if (error) notify(error);
+
   return (
     <>
       <SearchBox search={search} setSearch={setSearch} setQuery={setQuery} />
@@ -51,7 +60,7 @@ function ProductsPage() {
         </div>
         <Sidebar query={query} setQuery={setQuery} />
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </>
   );
 }

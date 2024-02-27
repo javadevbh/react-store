@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useProductDetail } from "../contexts/ProductContext";
+import { useSelector, useDispatch } from "react-redux";
+
+//Redux slices
+import { fetchProducts } from "../features/products/productsSlice";
 
 //Loader
 import Loader from "../components/Loader";
@@ -12,7 +15,14 @@ import { FaArrowLeft } from "react-icons/fa";
 
 function ProductDetailsPage() {
   const { id } = useParams();
-  const product = useProductDetail(id);
+  const product = useSelector((store) =>
+    store.products.products.find((p) => p.id == id)
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
 
   if (!product) return <Loader />;
   return (
