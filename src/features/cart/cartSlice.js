@@ -1,7 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 //Helpers
-import { sumPrice, sumQuantity } from "../../helpers/helper";
+import {
+  sumPrice,
+  sumQuantity,
+  getStorageValue,
+  setStorageValue,
+} from "../../helpers/helper";
 
 const initialState = {
   selectedItems: [],
@@ -12,7 +17,7 @@ const initialState = {
 
 const cartSlice = createSlice({
   name: "cart",
-  initialState,
+  initialState: getStorageValue("CART", initialState),
   reducers: {
     addItem: (state, action) => {
       if (!state.selectedItems.find((item) => item.id == action.payload.id)) {
@@ -20,6 +25,7 @@ const cartSlice = createSlice({
         state.itemsCounter = sumQuantity(state.selectedItems);
         state.total = sumPrice(state.selectedItems);
         state.checkout = false;
+        setStorageValue(state);
       }
     },
     increaseItem: (state, action) => {
@@ -27,12 +33,14 @@ const cartSlice = createSlice({
         .quantity++;
       state.itemsCounter = sumQuantity(state.selectedItems);
       state.total = sumPrice(state.selectedItems);
+      setStorageValue(state);
     },
     decreaseItem: (state, action) => {
       state.selectedItems.find((item) => item.id == action.payload.id)
         .quantity--;
       state.itemsCounter = sumQuantity(state.selectedItems);
       state.total = sumPrice(state.selectedItems);
+      setStorageValue(state);
     },
     removeItem: (state, action) => {
       const newSelectedItems = state.selectedItems.filter(
@@ -41,12 +49,14 @@ const cartSlice = createSlice({
       state.selectedItems = newSelectedItems;
       state.itemsCounter = sumQuantity(newSelectedItems);
       state.total = sumPrice(newSelectedItems);
+      setStorageValue(state);
     },
     checkout: (state) => {
       state.selectedItems = [];
       state.itemsCounter = 0;
       state.total = 0;
       state.checkout = true;
+      setStorageValue(state);
     },
   },
 });

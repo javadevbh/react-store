@@ -57,11 +57,15 @@ const productQuantity = (state, id) => {
   }
 };
 
-function getStorageValue(key, defaultValue) {
+const getStorageValue = (key, defaultValue) => {
   const saved = localStorage.getItem(key);
   const initial = JSON.parse(saved);
   return initial || defaultValue;
-}
+};
+
+const setStorageValue = (value) => {
+  localStorage.setItem("CART", JSON.stringify(value));
+};
 
 export {
   shortenTitle,
@@ -73,4 +77,5 @@ export {
   sumQuantity,
   productQuantity,
   getStorageValue,
+  setStorageValue,
 };
