@@ -1,8 +1,11 @@
-import React from 'react'
+//Images
+import pageNotFound from "../assets/404.png";
 
 function PageNotFound() {
   return (
-    <div>PageNotFound 404</div>
+    <div className='h-[1000px]'>
+      <img src={pageNotFound} alt="pageNotFound" />
+    </div>
   )
 }
 
