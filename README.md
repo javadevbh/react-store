@@ -1,8 +1,28 @@
-# React + Vite
+<div>
+  <img src="https://github.com/javadevbh/react-store/assets/122552232/ba94257a-6e90-41cc-b13a-0e636421ec95">
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+# A shopping cart with reactjs and redux
+## [review online](https://javadbahrami-store.netlify.app/products)
+---
+## tips
+* Single Page Application
+* Ability to add products to the shopping cart or remove them
+* Saving of product and shopping cart information in local storage
+* Filtering of products by their category
+* Searching for products
+* Parsing of search and filter queries from the URL
+* Product details page
+* Full responsiveness across mobile, tablet, laptop, and desktop devices
+---
+## web development technologies
+* Reactjs
+* Redux(Redux toolkit)
+* Tailwindcss
+---
+## contact me
+* *[Email](mailto:javadev14bh@gmail.com)*
+* *[Telegram](https://t.me/jav4d/)*
+* *[Instagram](https://instagram.com/javaadbahrami/)*
+* *[LinkedIn](https://www.linkedin.com/in/javad-bahrami-79b349259/)*
