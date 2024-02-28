@@ -4,7 +4,7 @@
 
 ---
 # A shopping cart with reactjs and redux
-## [review online](https://javadbahrami-store.netlify.app/products)
+## [review online](https://javadbahrami-store.netlify.app/)
 ---
 ## tips
 * Single Page Application
