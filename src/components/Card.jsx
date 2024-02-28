@@ -1,5 +1,13 @@
 import { Link } from "react-router-dom";
-import { useCart } from "../contexts/CartContext";
+import { useSelector, useDispatch } from "react-redux";
+
+//Redux actions
+import {
+  addItem,
+  increaseItem,
+  decreaseItem,
+  removeItem,
+} from "../features/cart/cartSlice";
 
 //Helpers
 import { shortenTitle, productQuantity } from "../helpers/helper";
@@ -11,13 +19,9 @@ import { MdDeleteOutline } from "react-icons/md";
 
 function Card({ data }) {
   const { id, image, title, price } = data;
-  const [state, dispatch] = useCart();
-
+  const state = useSelector((store) => store.cart);
+  const dispatch = useDispatch();
   const quantity = productQuantity(state, id);
-
-  const clickHandler = (type) => {
-    dispatch({ type, payload: data });
-  };
 
   return (
     <div className="w-[270px] bg-white border-2 border-dashed border-gray-300 p-5 rounded-2xl flex flex-col gap-6 animate-[moveRightBtn_1s]">
@@ -37,7 +41,7 @@ function Card({ data }) {
         <div className="flex-balance space-x-3">
           {quantity == 1 && (
             <button
-              onClick={() => clickHandler("REMOVE_ITEM")}
+              onClick={() => dispatch(removeItem(data))}
               className="btn animate-[moveLeftBtn_1s]"
             >
               <MdDeleteOutline />
@@ -45,7 +49,7 @@ function Card({ data }) {
           )}
           {quantity > 1 && (
             <button
-              onClick={() => clickHandler("DECREASE_ITEM")}
+              onClick={() => dispatch(decreaseItem(data))}
               className="btn pb-[3px]"
             >
               -
@@ -54,14 +58,14 @@ function Card({ data }) {
           {quantity > 0 && <span className="font-semibold">{quantity}</span>}
           {quantity == 0 ? (
             <button
-              onClick={() => clickHandler("ADD_ITEM")}
+              onClick={() => dispatch(addItem(data))}
               className="btn animate-[moveLeftBtn_1s]"
             >
               <TbShoppingBagPlus />
             </button>
           ) : (
             <button
-              onClick={() => clickHandler("INCREASE_ITEM")}
+              onClick={() => dispatch(increaseItem(data))}
               className="btn pb-[3px]"
             >
               +

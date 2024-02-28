@@ -1,3 +1,8 @@
+import { useDispatch } from "react-redux";
+
+//Redux actions
+import { checkout } from "../features/cart/cartSlice";
+
 //Icons
 import { TbChecklist } from "react-icons/tb";
 import { FaHashtag } from "react-icons/fa6";
@@ -6,8 +11,9 @@ import { BsPatchCheck } from "react-icons/bs";
 //Helpers
 import notify from "../helpers/toastify";
 
-function BasketSidebar({ state , dispatch }) {
+function BasketSidebar({ state }) {
   const { total, itemsCounter } = state;
+  const dispatch = useDispatch();
   return (
     <div className="w-60 p-5 shrink-0 h-fit grid gap-3 border-2 border-dashed border-primary-orange rounded-[40px] animate-[moveRightBtn_1s]">
       <div className="flex-balance space-x-2">
@@ -28,10 +34,15 @@ function BasketSidebar({ state , dispatch }) {
         </p>
         <p>pending...</p>
       </div>
-      <button onClick={() => {
-        dispatch({type : "CHECKOUT"})
-        notify("success", "Your checked out successfully");
-      } } className="btn w-full mt-7 text-lg">Checkout</button>
+      <button
+        onClick={() => {
+          dispatch(checkout());
+          notify("success", "Your checked out successfully");
+        }}
+        className="btn w-full mt-7 text-lg"
+      >
+        Checkout
+      </button>
     </div>
   );
 }

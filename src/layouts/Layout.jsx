@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { useCart } from "../contexts/CartContext";
+import { useSelector } from "react-redux";
 
 //Icons
 import { LuShoppingCart } from "react-icons/lu";
 
 function Layout({ children }) {
-  const [state] = useCart();
+  const { itemsCounter } = useSelector((store) => store.cart);
 
   return (
     <>
@@ -16,9 +16,9 @@ function Layout({ children }) {
         <Link to="/checkout">
           <div className="relative btn-white cursor-pointer">
             <LuShoppingCart />
-            {!!state.itemsCounter && (
+            {!!itemsCounter && (
               <span className="absolute text-xs bg-black text-white -top-2 -right-2 w-4 h-4 rounded-full text-center font-bold">
-                {state.itemsCounter}
+                {itemsCounter}
               </span>
             )}
           </div>
